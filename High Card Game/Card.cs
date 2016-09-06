@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace High_Card_Game
 {
-    class Card
+    public class Card
     {
         public Suits Suit { get; set; }
-        public int Value { get; set; }
+        public int Rank { get; set; }
         public string CardName { get; }
 
-        public Card(Suits suit, int value)
+        public Card(Suits suit, int rank)
         {
-            Suits Suit = suit;
-            int Value = value;
-            CardName = NameCard(suit, value);
+            Suit = suit;
+            Rank = rank;
+            CardName = NameCard(suit, rank);
         }
 
         public enum Suits
@@ -33,9 +33,9 @@ namespace High_Card_Game
         /// <param name="suit"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        private string NameCard(Suits suit, int value)
+        private string NameCard(Suits suit, int rank)
         {
-            switch (value)
+            switch (rank)
             {
                 case 11:
                     return "Jack of " + suit;
@@ -46,7 +46,7 @@ namespace High_Card_Game
                 case 14:
                     return "Ace of " + suit;
                 default:
-                    return value + " of " + suit;
+                    return rank + " of " + suit;
             }
         }
     }
